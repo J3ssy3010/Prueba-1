@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Publicaciones</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Listado de Publicaciones</h1>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Páginas</th>
+                    <th>Fecha de Publicación</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="publicacion : ${publicaciones}">
+                    <td th:text="${publicacion.id_publicacion}"></td>
+                    <td th:text="${publicacion.titulo}"></td>
+                    <td th:text="${publicacion.paginas}"></td>
+                    <td th:text="${publicacion.fecha_publicacion}"></td>
+                    <td><img th:src="${publicacion.imagen}" alt="Imagen" width="50"></td>
+                    <td><a th:href="@{/modifica(id=${publicacion.id_publicacion})}" class="btn btn-warning">Modificar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
